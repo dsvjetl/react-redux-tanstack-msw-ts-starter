@@ -1,8 +1,8 @@
-# React [Redux / Tanstack Query / Mock Service Worker] JavaScript Starter/Boilerplate
+# React [Redux / Tanstack Query / Mock Service Worker] TypeScript Starter/Boilerplate
 
 ## Overview
 
-This project is built using **React 18.3.1** and leverages several popular JavaScript libraries and tools to create a
+This project is built using **React 18.3.1** and leverages several popular TypeScript libraries and tools to create a
 modern, fast, and scalable front-end application. The project uses **Vite** as its build tool for optimized development
 and production builds.
 
@@ -17,6 +17,7 @@ and production builds.
 - **React Router DOM** for routing.
 - **Axios** for HTTP requests.
 - **React Query** integration for server state management.
+- **TypeScript** for static typing and improved developer experience.
 - **Eslint** and **Prettier** for maintaining code quality and style consistency.
 - **SASS Embedded** for advanced styling capabilities.
 - Mocking with **MSW** (Mock Service Worker).
@@ -152,6 +153,7 @@ Below are the standard scripts defined in the `package.json`:
 | **React Router DOM**    | 7.0.2   | Client-side routing                       |
 | **Axios**               | 1.7.9   | HTTP requests                             |
 | **React Query**         | 5.62.8  | Server state management                   |
+| **TypeScript**          | 5.7.3   | Static typing and type safety             |
 | **Eslint**              | 8.57.1  | Error prevention and code standardization |
 | **Prettier**            | 3.4.2   | Code formatting                           |
 | **SASS Embedded**       | 1.83.0  | Advanced CSS styling                      |
@@ -235,7 +237,7 @@ npm run scan:deadcode
 
 This project uses **Mock Service Worker (MSW)** to mock API endpoints during development and testing. MSW ensures
 controlled responses and prevents dependency on actual backend services.
-See the `src/views/HomeExample/mocks/postsMock.js` as an example.
+See the `src/views/HomeExample/mocks/postsMock.ts` as an example.
 
 ```bash
 npm run dev:mock
