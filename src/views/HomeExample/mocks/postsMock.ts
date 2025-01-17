@@ -1,4 +1,6 @@
-const postsMock = [
+import { Post } from '../models/Post';
+
+const postsMock: Post[] = [
   {
     userId: 1,
     id: 1,

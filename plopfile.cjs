@@ -19,8 +19,8 @@ module.exports = function (plop) {
         type: 'add',
         path:
           currentPath +
-          '/components/{{pascalCase name}}/{{pascalCase name}}.jsx',
-        templateFile: 'plop-templates/Component.jsx.hbs',
+          '/components/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        templateFile: 'plop-templates/Component.tsx.hbs',
       },
       {
         type: 'add',
@@ -31,15 +31,15 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: currentPath + '/components/{{pascalCase name}}/index.js',
-        templateFile: 'plop-templates/index.js.hbs',
+        path: currentPath + '/components/{{pascalCase name}}/index.ts',
+        templateFile: 'plop-templates/index.ts.hbs',
       },
       {
         type: 'add',
         path:
           currentPath +
-          '/components/{{pascalCase name}}/{{pascalCase name}}.test.jsx',
-        templateFile: 'plop-templates/Component.test.js.hbs',
+          '/components/{{pascalCase name}}/{{pascalCase name}}.test.tsx',
+        templateFile: 'plop-templates/Component.test.tsx.hbs',
       },
     ],
   });

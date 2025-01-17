@@ -1,0 +1,11 @@
+import styles from './{{pascalCase name}}.module.scss';
+
+interface {{pascalCase name}}Props = {
+  prop: string;
+}
+
+const {{pascalCase name}} = ({ prop }: {{pascalCase name}}Props) => {
+  return <div className={styles.container}>{{pascalCase name}} Component with prop: {prop}</div>;
+};
+
+export default {{pascalCase name}};

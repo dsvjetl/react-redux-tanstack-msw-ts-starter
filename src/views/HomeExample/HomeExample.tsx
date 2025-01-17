@@ -2,13 +2,16 @@ import styles from './HomeExample.module.scss';
 import { usePosts } from './hooks/usePosts';
 import { Posts } from './components/Posts';
 import { Todos } from './components/Todos';
-import { ReactElement } from 'react';
 
-const HomeExample = (): ReactElement => {
+const HomeExample = () => {
   const { data: posts, isLoading } = usePosts();
 
   const renderPosts = () => {
-    return isLoading ? <span>Loading posts...</span> : <Posts posts={posts} />;
+    return isLoading || posts === undefined ? (
+      <span>Loading posts...</span>
+    ) : (
+      <Posts posts={posts} />
+    );
   };
 
   return (
