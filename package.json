@@ -1,0 +1,79 @@
+{
+  "name": "react-redux-tanstack-msw-js-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:mock": "VITE_API_MOCK=true vite",
+    "build": "vite build",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write './src/**/*.{js,jsx}'",
+    "scan:deadcode": "knip",
+    "generate": "plop",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --config eslint.config.js --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
+    "@tanstack/react-query": "^5.62.8",
+    "@tanstack/react-query-devtools": "^5.62.8",
+    "axios": "^1.7.9",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.17",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^15.13.0",
+    "husky": "^9.1.7",
+    "inquirer-directory": "^2.2.0",
+    "jsdom": "^25.0.1",
+    "knip": "^5.41.1",
+    "lint-staged": "^15.2.11",
+    "msw": "^2.7.0",
+    "plop": "^4.0.1",
+    "prettier": "^3.4.2",
+    "sass-embedded": "^1.83.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

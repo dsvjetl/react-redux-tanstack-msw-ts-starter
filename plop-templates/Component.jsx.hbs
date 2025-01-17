@@ -1,0 +1,13 @@
+import PropTypes from 'prop-types';
+
+import styles from './{{pascalCase name}}.module.scss';
+
+const {{pascalCase name}} = ({ children }) => {
+  return <div className={styles.container}>{{pascalCase name}} Component</div>;
+};
+
+{{pascalCase name}}.propTypes = {
+  children: PropTypes.node,
+};
+
+export default {{pascalCase name}};
