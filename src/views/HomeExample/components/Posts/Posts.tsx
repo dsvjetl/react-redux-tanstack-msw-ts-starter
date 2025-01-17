@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
-
 import { isMock } from '../../../../shared/utils/isMock';
 import { Post } from '../Post';
+import { Post as PostT } from '../../models/Post';
 
-const Posts = ({ posts }) => {
+interface PostsProps {
+  posts: PostT[];
+}
+
+const Posts = ({ posts }: PostsProps) => {
   return (
     <div>
       <h3>{isMock ? 'Mocked data:' : 'Fetched XHR data:'}</h3>
@@ -14,17 +17,6 @@ const Posts = ({ posts }) => {
       </ul>
     </div>
   );
-};
-
-Posts.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      userId: PropTypes.number,
-      title: PropTypes.string,
-      body: PropTypes.string,
-    }).isRequired,
-  ),
 };
 
 export default Posts;

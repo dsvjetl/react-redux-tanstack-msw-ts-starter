@@ -14,7 +14,7 @@ const excludeFiles = [
   'src/assets',
   'src/mocks',
   'src/store',
-  '**/index.js',
+  '**/index.ts',
 ];
 
 export default defineConfig(({ mode }) => ({
@@ -35,10 +35,15 @@ export default defineConfig(({ mode }) => ({
       },
     },
   ],
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './vitest.setup.js',
+    setupFiles: './vitest.setup.ts',
     include: ['src/**/*.test.{js,ts,jsx,tsx}'],
     exclude: [...excludeFiles],
     coverage: {

@@ -4,8 +4,8 @@ import { Todo } from './index';
 
 describe('Todo', () => {
   it('should render', () => {
-    render(<Todo />);
+    render(<Todo todo={'todo'} />);
 
-    expect(screen.getByTestId('todo')).toBeInTheDocument();
+    expect(screen.getByText('todo')).toBeInTheDocument();
   });
 });

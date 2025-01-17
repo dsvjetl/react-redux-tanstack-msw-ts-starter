@@ -2,8 +2,9 @@ import styles from './HomeExample.module.scss';
 import { usePosts } from './hooks/usePosts';
 import { Posts } from './components/Posts';
 import { Todos } from './components/Todos';
+import { ReactElement } from 'react';
 
-const HomeExample = () => {
+const HomeExample = (): ReactElement => {
   const { data: posts, isLoading } = usePosts();
 
   const renderPosts = () => {

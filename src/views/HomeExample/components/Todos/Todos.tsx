@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import styles from './Todos.module.scss';
-import { add } from '../../../../store/todoSlice';
+import { add, reset } from '../../../../store/todoSlice';
 import { Todo } from '../Todo';
 
 const Todos = () => {
   const [value, setValue] = useState('');
-  const todo = useSelector((state) => state.todo);
+  const todo: string[] = useSelector((state: any) => state.todo);
   const dispatch = useDispatch();
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 
@@ -19,12 +19,16 @@ const Todos = () => {
     setValue('');
   };
 
+  const resetTodos = () => {
+    dispatch(reset());
+  };
+
   const renderTodos = () => {
     return (
       <>
         <h4>Redux todo list:</h4>
         <ul>
-          {todo.list.map((todo, index) => (
+          {todo.list.map((todo: string, index: number) => (
             <Todo key={index} todo={todo} />
           ))}
         </ul>
@@ -37,6 +41,7 @@ const Todos = () => {
       <h3>Todos</h3>
       <input type="text" value={value} onChange={handleInputChange} />
       <button onClick={addTodo}>Add todo</button>
+      <button onClick={resetTodos}>Reset todos</button>
       {renderTodos()}
     </div>
   );

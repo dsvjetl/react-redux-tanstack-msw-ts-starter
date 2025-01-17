@@ -74,13 +74,13 @@ To set up the project locally, follow these steps:
 │   ├── routing         # React Router
 │   ├── assets          # Multimedia files
 │   ├── mocks           # Mock Service Worker config
-│   └── App.jsx         # Main application entry point
+│   └── App.tsx         # Main application entry point
 ├── public              # Static assets (e.g., index.html, images) & mockServiceWorker.js
 ├── package.json        # Project dependencies and scripts
 ├── .eslintrc.json      # ESLint configuration
 ├── prettier.config.js  # Prettier configuration
 ├── README.md           # Documentation
-├── vite.config.js      # Vite configuration
+├── vite.config.ts      # Vite configuration
 └── vitest.config.ts    # Vitest configuration
 ...
 ```
