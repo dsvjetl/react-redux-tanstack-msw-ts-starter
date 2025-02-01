@@ -7,6 +7,8 @@
 
 A modern React starter kit with TypeScript, Redux, Tanstack Query, and Mock Service Worker, optimized for fast development with Vite.
 
+![React](https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif)
+
 ## Requirements
 
 - **Node.js** ~^v23.x.x
