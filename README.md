@@ -209,6 +209,17 @@ Below are the standard scripts defined in the `package.json`:
   npm run scan:deadcode
   ```
 
+## Husky commit checks
+
+Husky is configured so you can commit only if ESLint and Prettier checks pass.
+
+**Unit tests are not required for Husky checks** because of:
+
+- Faster development cycle
+- Testing can be postponed
+- Encouraging developer autonomy
+- Overhead in small projects
+
 ## Libraries and Tools
 
 | Library/Tool             | Version | Use Case                                  |
