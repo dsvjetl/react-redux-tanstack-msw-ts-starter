@@ -2,9 +2,7 @@
 
 ## Overview
 
-This project is built using **React 18.3.1** and leverages several popular TypeScript libraries and tools to create a
-modern, fast, and scalable front-end application. The project uses **Vite** as its build tool for optimized development
-and production builds.
+A modern React starter kit with TypeScript, Redux, Tanstack Query, and Mock Service Worker, optimized for fast development with Vite.
 
 ## Requirements
 
@@ -17,11 +15,13 @@ and production builds.
 
 ## Features
 
+- **Vite** for blazing-fast development and build optimizations.
 - **React & Redux** for state management and UI rendering.
 - **React Router DOM** for routing.
 - **Axios** for HTTP requests.
 - **React Query** integration for server state management.
   - Integration with **React Query Devtools** for debugging server state.
+  - Scalable architecture with Redux.
 - **ESLint** and **Prettier** for maintaining code quality and style consistency.
 - **SASS Embedded** for advanced styling capabilities.
 - **Husky** for Git hook management.
@@ -29,6 +29,7 @@ and production builds.
 - **Vitest** for testing and test-driven development.
 - **Plop.js** for component and file scaffolding.
 - Mocking with **MSW** (Mock Service Worker).
+  - Built-in testing & API mocking with MSW.
 
 ## Installation
 
@@ -131,6 +132,9 @@ These examples are connected to:
 ├── vite.config.ts       # Vite configuration
 └── vitest.setup.ts      # Vitest configuration
 ```
+
+Folder structure example:
+![Imgur](https://i.imgur.com/6o5Yb66.png)
 
 ## Scripts
 
@@ -302,6 +306,11 @@ See `src/views/HomeExample/mocks/postsMock.ts` and `src/mocks/handlers.ts` for e
 npm run dev:mock
 ```
 
+## Who is this Starter Kit for?
+
+- Developers who want to build fast and stable React SPA applications with modern tools and features (no SSR).
+  - SSR (Server-Side Rendering) can be implemented manually if needed.
+
 ## Contribution Guidelines
 
 1. Fork the repository and create a new branch for your feature or bug fix.
@@ -314,4 +323,9 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ---
 
+**🎯 Want to get started quickly? Fork the repo and launch your project in under 2 minutes! 🚀**
+
+---
+
+f
 Happy Coding! 🎉
