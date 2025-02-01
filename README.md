@@ -341,5 +341,4 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ---
 
-f
 Happy Coding! 🎉
