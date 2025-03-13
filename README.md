@@ -5,7 +5,8 @@
 
 ## Overview
 
-A modern React starter kit with TypeScript, Redux, Tanstack Query, and Mock Service Worker, optimized for fast development with Vite.
+A modern React starter kit with TypeScript, Redux, Tanstack Query, and Mock Service Worker, optimized for fast
+development with Vite.
 
 ![React](https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif)
 
@@ -90,7 +91,8 @@ showcasing.
 `VITE_API_BASE_URL` should be updated with the desired endpoint URL, and you can add more `.env` variables as long as
 they start with `VITE_API`.
 
-**`VITE_API_MOCK=false` should be present in the `.env` files** so the MSW script `"dev:mock": "VITE_API_MOCK=true vite"`
+**`VITE_API_MOCK=false` should be present in the `.env` files** so the MSW script
+`"dev:mock": "VITE_API_MOCK=true vite"`
 can work properly.
 
 ## Example files - how to handle
@@ -226,7 +228,7 @@ Husky is configured so you can commit only if ESLint and Prettier checks pass.
 
 | Library/Tool             | Version | Use Case                                  |
 | ------------------------ | ------- | ----------------------------------------- |
-| **React**                | 18.3.1  | UI rendering                              |
+| **React**                | 19.0.0  | UI rendering                              |
 | **React Redux**          | 9.2.0   | State management                          |
 | **React Router DOM**     | 7.0.2   | Client-side routing                       |
 | **Axios**                | 1.7.9   | HTTP requests                             |
