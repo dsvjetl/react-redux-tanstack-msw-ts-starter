@@ -1,8 +1,10 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 import { getApiBaseUrl } from '../utils/getApiBaseUrl';
 
 class ApiService {
+  private client: AxiosInstance;
+
   constructor() {
     this.client = axios.create({
       baseURL: getApiBaseUrl,
@@ -46,22 +48,22 @@ class ApiService {
   }
 
   // GET Request
-  get(endpoint, params = {}) {
+  get(endpoint: string, params = {}) {
     return this.client.get(endpoint, { params });
   }
 
   // POST Request
-  post(endpoint, data = {}) {
+  post(endpoint: string, data = {}) {
     return this.client.post(endpoint, data);
   }
 
   // PUT Request
-  put(endpoint, data = {}) {
+  put(endpoint: string, data = {}) {
     return this.client.put(endpoint, data);
   }
 
   // DELETE Request
-  delete(endpoint) {
+  delete(endpoint: string) {
     return this.client.delete(endpoint);
   }
 }
