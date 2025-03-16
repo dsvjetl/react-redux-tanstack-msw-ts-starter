@@ -1,4 +1,4 @@
-import apiService from '../../../shared/services/ApiService';
+import { apiService } from '../../../shared/services/ApiService';
 
 const fetchPosts = () => {
   return apiService.get('/posts');
