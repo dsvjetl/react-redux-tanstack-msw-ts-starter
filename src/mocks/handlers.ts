@@ -1,5 +1,7 @@
-import { createApiMockHandler } from '../views/HomeExample/utils/createApiMockHandler';
+import type { RequestHandler } from 'msw';
 
-const handlers = [...createApiMockHandler()];
+// This feature calls no HTTP endpoints. Handlers are added here when a
+// backend is introduced (see specs/001-daily-todo-planner/research.md R13).
+const handlers: RequestHandler[] = [];
 
 export { handlers };

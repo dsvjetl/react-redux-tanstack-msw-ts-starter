@@ -1,5 +1,6 @@
 const routePaths = {
-  HOME: '/',
-};
+  TODAY: '/',
+  CALENDAR: '/calendar',
+} as const;
 
 export default routePaths;

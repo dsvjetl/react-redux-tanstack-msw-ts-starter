@@ -1,0 +1,52 @@
+@use '../../../assets/styles/mixins' as *;
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-2) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+}
+
+.checkbox {
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border-radius: 6px;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: inherit;
+  opacity: 0.8;
+  cursor: pointer;
+  padding: 0;
+
+  &[data-state='checked'] {
+    background: currentColor;
+    opacity: 1;
+
+    svg {
+      color: var(--color-surface);
+    }
+  }
+}
+
+.text {
+  opacity: 0.9;
+}
+
+.doneText {
+  opacity: 0.6;
+  text-decoration: line-through;
+}

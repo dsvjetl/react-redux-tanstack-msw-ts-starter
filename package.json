@@ -1,5 +1,5 @@
 {
-  "name": "react-redux-tanstack-msw-js-starter",
+  "name": "daily-todo-planner",
   "private": true,
   "version": "2.0.0",
   "type": "module",
@@ -17,7 +17,10 @@
     "scan:deadcode": "knip",
     "generate": "plop",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:open": "npx cap open android",
+    "typecheck": "tsc --noEmit"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -29,20 +32,36 @@
     ]
   },
   "dependencies": {
+    "@capacitor/app": "^8.1.1",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/keyboard": "^8.0.5",
+    "@capacitor/preferences": "^8.0.1",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.3",
+    "@hookform/resolvers": "^5.9.1",
     "@reduxjs/toolkit": "^2.5.0",
     "@tanstack/react-query": "^5.62.8",
     "@tanstack/react-query-devtools": "^5.62.8",
     "axios": "^1.7.9",
+    "date-fns": "^4.4.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "lucide-react": "^1.47.0",
+    "radix-ui": "^1.6.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.88.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.0.2"
+    "react-router-dom": "^7.0.2",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
     "@eslint/js": "^9.17.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -69,6 +88,7 @@
     "sass": "^1.83.4",
     "sass-embedded": "^1.83.0",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.70.1",
     "vite": "^6.0.3",
     "vitest": "^2.1.8"
   },
@@ -76,5 +96,13 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "allowScripts": {
+    "esbuild@0.24.2": true,
+    "esbuild@0.21.5": true,
+    "fsevents@2.3.3": true,
+    "@parcel/watcher@2.5.0": true,
+    "msw@2.7.0": true,
+    "spawn-sync@1.0.15": true
   }
 }

@@ -1,0 +1,28 @@
+@use '../../../assets/styles/mixins' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-control);
+  background: var(--color-primary-soft);
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.message {
+  flex: 1;
+}
+
+.dismiss {
+  @include focus-ring;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+}

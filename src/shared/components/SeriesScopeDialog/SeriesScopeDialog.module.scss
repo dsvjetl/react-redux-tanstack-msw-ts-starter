@@ -1,0 +1,59 @@
+@use '../../../assets/styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 27, 46, 0.45);
+  z-index: 20;
+}
+
+.content {
+  @include card;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100vw - 32px), 420px);
+  padding: var(--space-5);
+  z-index: 21;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.description {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.option,
+.cancel {
+  @include focus-ring;
+  border: 0;
+  border-radius: var(--radius-control);
+  padding: var(--space-3) var(--space-4);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.option {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.cancel {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  text-align: center;
+}

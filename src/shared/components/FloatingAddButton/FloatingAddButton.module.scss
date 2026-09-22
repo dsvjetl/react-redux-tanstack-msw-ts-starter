@@ -1,0 +1,25 @@
+@use '../../../assets/styles/mixins' as *;
+
+.button {
+  @include focus-ring;
+  position: fixed;
+  right: var(--space-5);
+  bottom: calc(var(--nav-height) + var(--safe-bottom) + var(--space-4));
+  width: 60px;
+  height: 60px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  box-shadow: var(--shadow-float);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 11;
+  transition: transform var(--motion-fast) ease;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}

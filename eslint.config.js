@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import globals from 'globals';
+import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
@@ -9,15 +10,28 @@ import importPlugin from 'eslint-plugin-import';
 import vitestPlugin from 'eslint-plugin-vitest';
 
 export default [
-  // Ignore the "dist" directory
-  { ignores: ['dist'] },
-
-  // General configuration for all JavaScript/JSX files
+  // Build output, native project and generated assets are never linted
   {
-    files: ['**/*.{js,jsx}'],
+    ignores: [
+      'dist',
+      'android',
+      'coverage',
+      'public',
+      'plop-templates',
+      'node_modules',
+    ],
+  },
+
+  // TypeScript rules (recommended, non type-checked for speed)
+  ...tseslint.configs.recommended,
+
+  // Shared configuration for all JavaScript and TypeScript files
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       globals: globals.browser,
+      parser: tseslint.parser,
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
@@ -41,10 +55,18 @@ export default [
       ...jsxA11y.configs.recommended.rules,
       'prettier/prettier': 'error',
       'react/jsx-no-target-blank': 'off',
+      'react/prop-types': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      'no-unused-vars': 'off',
+      'no-undef': 'off',
       'import/extensions': [
         'error',
         'ignorePackages',
@@ -79,7 +101,7 @@ export default [
       ...vitestPlugin.configs.recommended.rules,
     },
     settings: {
-      react: { version: '18.3' },
+      react: { version: 'detect' },
       'import/resolver': {
         node: {
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -88,16 +110,27 @@ export default [
     },
   },
 
+  // Node-based config files
+  {
+    files: ['*.config.{js,ts,cjs}', 'plopfile.cjs', 'vitest.setup.ts'],
+    languageOptions: { globals: { ...globals.node } },
+  },
+  {
+    files: ['**/*.cjs'],
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
+  },
+
   // Test-specific configuration
   {
-    files: ['**/*.test.js', '**/*.test.jsx', '**/*.spec.js', '**/*.spec.jsx'], // Target only test files
+    files: ['**/*.test.{js,jsx,ts,tsx}', '**/*.spec.{js,jsx,ts,tsx}'],
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.shared, // Includes shared globals like console
+        ...globals.node,
         describe: 'readonly',
         it: 'readonly',
         expect: 'readonly',
+        vi: 'readonly',
         beforeAll: 'readonly',
         afterAll: 'readonly',
         beforeEach: 'readonly',
@@ -105,7 +138,7 @@ export default [
       },
     },
     rules: {
-      'vitest/expect-expect': ['warn', { assertFunctionNames: ['expect'] }], // Marks tests without assertions
+      'vitest/expect-expect': ['warn', { assertFunctionNames: ['expect'] }],
     },
   },
 ];

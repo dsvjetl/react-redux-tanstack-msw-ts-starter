@@ -1,0 +1,102 @@
+@use '../../../assets/styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.radioGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.radio {
+  @include focus-ring;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-text-muted);
+  background: var(--color-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+
+  &[data-state='checked'] {
+    border-color: var(--color-primary);
+  }
+}
+
+.radioIndicator {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.days {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.dayRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.day,
+.dayChecked {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:focus-within {
+    outline: 3px solid var(--color-accent-violet);
+    outline-offset: 2px;
+  }
+}
+
+.dayChecked {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.dayInput {
+  @include visually-hidden;
+}
+
+.error {
+  margin-top: var(--space-2);
+  color: var(--color-danger);
+  font-size: 0.85rem;
+}
