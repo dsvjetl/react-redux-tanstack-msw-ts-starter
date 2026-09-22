@@ -21,7 +21,7 @@ development with Vite.
 
 ## Features
 
-- **Vite** for blazing-fast development and build optimizations.lala
+- **Vite** for blazing-fast development and build optimizations.
 - **React & Redux** for state management and UI rendering.
 - **React Router DOM** for routing.
 - **Axios** for HTTP requests.
