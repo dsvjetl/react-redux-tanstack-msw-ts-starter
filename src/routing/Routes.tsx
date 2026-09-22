@@ -1,12 +1,15 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { HomeExample } from '../views/HomeExample';
-import { routePaths } from './index';
+import { Today } from '../views/Today';
+import { Calendar } from '../views/Calendar';
+import routePaths from './routePaths';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path={routePaths.HOME} element={<HomeExample />} />
+      <Route path={routePaths.TODAY} element={<Today />} />
+      <Route path={routePaths.CALENDAR} element={<Calendar />} />
+      <Route path="*" element={<Navigate to={routePaths.TODAY} replace />} />
     </Routes>
   );
 };

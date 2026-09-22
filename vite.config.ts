@@ -8,12 +8,13 @@ const excludeFiles = [
   'node_modules',
   'dist',
   'coverage',
+  'android',
   'plop-templates',
   'public',
   '.husky',
   'src/assets',
   'src/mocks',
-  'src/store',
+  'src/shared/utils/testing',
   '**/index.ts',
 ];
 

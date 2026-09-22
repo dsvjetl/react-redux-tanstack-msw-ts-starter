@@ -1,0 +1,209 @@
+@use '../../../assets/styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 27, 46, 0.45);
+  z-index: 20;
+}
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: calc(100dvh - var(--safe-top) - 24px);
+  overflow-y: auto;
+  margin: 0 auto;
+  max-width: 640px;
+  padding: var(--space-3) var(--space-4)
+    calc(var(--space-5) + var(--safe-bottom));
+  background: var(--color-surface);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  box-shadow: 0 -10px 30px rgba(31, 27, 46, 0.15);
+  z-index: 21;
+
+  &[data-state='open'] {
+    animation: slide-up var(--motion-base) ease-out;
+  }
+
+  &[data-state='closed'] {
+    animation: slide-down var(--motion-base) ease-in;
+  }
+
+  @include reduced-motion {
+    animation: none !important;
+  }
+}
+
+.handle {
+  width: 40px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  margin: 0 auto var(--space-3);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.input {
+  @include focus-ring;
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-3);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-danger);
+  }
+}
+
+.inline {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.error,
+.errorFull {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+}
+
+.errorFull {
+  flex-basis: 100%;
+}
+
+.subItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.subItemRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.subItemRow .input {
+  flex: 1;
+}
+
+.ghostButton {
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  align-self: flex-start;
+  border: 0;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.iconButton {
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.cancel,
+.save {
+  @include focus-ring;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: var(--space-3) var(--space-5);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cancel {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.save {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}

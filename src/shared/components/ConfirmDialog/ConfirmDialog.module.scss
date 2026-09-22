@@ -1,0 +1,65 @@
+@use '../../../assets/styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 27, 46, 0.45);
+  z-index: 20;
+}
+
+.content {
+  @include card;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(calc(100vw - 32px), 420px);
+  padding: var(--space-5);
+  z-index: 21;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.description {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+%button {
+  @include focus-ring;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel {
+  @extend %button;
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.confirm {
+  @extend %button;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.destructive {
+  @extend %button;
+  background: var(--color-danger);
+  color: var(--color-primary-contrast);
+}

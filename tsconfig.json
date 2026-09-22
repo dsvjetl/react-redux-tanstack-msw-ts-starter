@@ -1,21 +1,21 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2020",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "outDir": "./dist",
+    "noEmit": true,
     "baseUrl": "./src",
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],
     "paths": {
       "*": ["./*"]
     }
   },
   "include": ["src", "global.d.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.{ts,tsx}"]
+  "exclude": ["node_modules", "dist", "android", "**/*.test.{ts,tsx}"]
 }

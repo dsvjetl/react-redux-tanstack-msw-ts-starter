@@ -1,4 +1,4 @@
-# TypeScript React Starter [Redux / Tanstack Query / Mock Service Worker]
+# Modern React Todo App with TypeScript React Starter [Redux / Tanstack Query / Mock Service Worker]
 
 ![Version](https://img.shields.io/badge/version-2.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -95,19 +95,42 @@ they start with `VITE_API`.
 `"dev:mock": "VITE_API_MOCK=true vite"`
 can work properly.
 
-## Example files - how to handle
+## Daily Todo Planner
 
-**The project uses examples** to showcase to developers how to use them:
+This repository implements a small, offline, mobile-first todo planner on top of the starter:
 
-- `src/views/HomeExample`
-- `src/shared/components/HeaderExample`
+- **Today** (`/`): today's date, a remaining-count badge, an "Up next" card, timed tasks on a
+  timeline, "Anytime" tasks, and an "Overdue" group for undone one-off tasks from the last 30 days.
+- **Calendar** (`/calendar`): a 7-day week grid (hour rows 6 AM–11 PM plus an "Anytime" row) with
+  week navigation and per-day "Add task" buttons.
+- **Task editor** (bottom sheet): title, date, time (5-minute steps), repeat rule (every day,
+  weekdays, weekly on chosen days) and up to 10 sub-items. Repeating tasks complete per day and can
+  be edited or deleted for "this occurrence only" or "this and all future occurrences".
+- **Storage**: a single versioned JSON document in Capacitor Preferences (Android
+  `SharedPreferences`, `localStorage` on the web). No accounts, no network.
 
-These examples are connected to:
+Design artifacts live in `specs/001-daily-todo-planner/` (spec, plan, research, data model,
+contracts, quickstart, tasks). Project rules are in `.specify/memory/constitution.md`.
 
-- `src/store/todoSlice.ts`
-- `src/routing/Routes.tsx`
+### Mock mode
 
-**Delete or refactor example files to start the project from scratch.**
+`npm run dev:mock` sets `VITE_API_MOCK=true`, which swaps the Preferences-backed repository for an
+in-memory one seeded with sample tasks around the current week (`src/mocks/seedTasks.ts`). This
+feature calls no HTTP endpoints, so the MSW handler list is empty; the worker stays wired for a
+future sync backend. Knip is configured to keep the unused Axios service for the same reason.
+
+### Android (Capacitor)
+
+Prerequisites: Node ≥ 22 (see `.nvmrc`), JDK 21, Android Studio Otter 2025.2.1+ with an SDK
+and an emulator or device (`ANDROID_HOME` set).
+
+```bash
+npx cap add android      # first time only; generates android/
+npm run cap:sync         # vite build + copy dist/ into the native project
+npm run cap:open         # open in Android Studio and press Run
+```
+
+`capacitor.config.ts` sets `appId` to `com.dava.todo` and the app name to "Todo Dava".
 
 ## Project Structure
 
@@ -211,6 +234,19 @@ Below are the standard scripts defined in the `package.json`:
 
   ```bash
   npm run scan:deadcode
+  ```
+
+- **Type-check without emitting:**
+
+  ```bash
+  npm run typecheck
+  ```
+
+- **Build and sync the Android project / open it in Android Studio:**
+
+  ```bash
+  npm run cap:sync
+  npm run cap:open
   ```
 
 ## Husky commit checks
@@ -318,7 +354,7 @@ npm run scan:deadcode
 
 This project uses **Mock Service Worker (MSW)** to mock API endpoints during development and testing. MSW ensures
 controlled responses and eliminates dependency on actual backend services.
-See `src/views/HomeExample/mocks/postsMock.ts` and `src/mocks/handlers.ts` for examples.
+See `src/mocks/handlers.ts` for where handlers are registered (empty until a backend exists).
 
 ```bash
 npm run dev:mock
@@ -346,3 +382,4 @@ This project is licensed under the [MIT License](./LICENSE).
 ---
 
 Happy Coding! 🎉
+# todo-git-spec-kit

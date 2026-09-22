@@ -1,3 +1,4 @@
-const getEnvVar = (envVar: string) => (import.meta as any).env[envVar];
+const getEnvVar = (envVar: string): string | undefined =>
+  import.meta.env[envVar] as string | undefined;
 
 export { getEnvVar };

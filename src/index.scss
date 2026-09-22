@@ -1,24 +1,19 @@
 /* <RESET CSS> */
-/* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
 * {
   margin: 0;
 }
 
 body {
-  /* 3. Add accessible line-height */
   line-height: 1.5;
-  /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
 
-/* 5. Improve media defaults */
 img,
 picture,
 video,
@@ -28,7 +23,6 @@ svg {
   max-width: 100%;
 }
 
-/* 6. Inherit fonts for form controls */
 input,
 button,
 textarea,
@@ -36,7 +30,6 @@ select {
   font: inherit;
 }
 
-/* 7. Avoid text overflows */
 p,
 h1,
 h2,
@@ -47,7 +40,6 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* 8. Improve line wrapping */
 p {
   text-wrap: pretty;
 }
@@ -60,11 +52,76 @@ h6 {
   text-wrap: balance;
 }
 
-/*
-  9. Create a root stacking context
-*/
 #root,
 #__next {
   isolation: isolate;
 }
 /* </RESET CSS> */
+
+/* <DESIGN TOKENS> — defined once, consumed by every *.module.scss */
+:root {
+  --color-bg: #fdf1f0;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f5fa;
+  --color-primary: #d9414f;
+  --color-primary-soft: #fde3e6;
+  --color-primary-contrast: #ffffff;
+  --color-accent-violet: #6c4de6;
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-accent-violet) 0%,
+    #a44dc0 45%,
+    #f26b75 100%
+  );
+  --color-text: #1f1b2e;
+  --color-text-muted: #6d6879;
+  --color-border: #ebe6ef;
+  --color-success: #2f9e6e;
+  --color-danger: #c62d3c;
+
+  --radius-card: 20px;
+  --radius-pill: 999px;
+  --radius-control: 12px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --shadow-card: 0 10px 30px rgba(31, 27, 46, 0.08);
+  --shadow-float: 0 12px 24px rgba(217, 65, 79, 0.35);
+
+  --font-display:
+    'Avenir Next', 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif;
+  --font-body:
+    'Avenir Next', 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif;
+
+  --motion-fast: 120ms;
+  --motion-base: 220ms;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  --nav-height: 64px;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+  }
+}
+/* </DESIGN TOKENS> */

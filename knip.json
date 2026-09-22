@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": ["src/main.tsx", "capacitor.config.ts", "plopfile.cjs"],
+  "project": ["src/**/*.{ts,tsx,scss}"],
+  "ignore": [
+    "src/shared/services/ApiService.ts",
+    "src/shared/utils/getApiBaseUrl.ts",
+    "src/shared/utils/testing/**"
+  ],
+  "ignoreDependencies": ["axios", "@capacitor/keyboard"]
+}

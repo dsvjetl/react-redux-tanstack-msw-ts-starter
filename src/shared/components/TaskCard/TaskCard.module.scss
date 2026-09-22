@@ -1,0 +1,116 @@
+@use '../../../assets/styles/mixins' as *;
+
+.card {
+  @include card;
+  background: var(--color-surface-muted);
+  box-shadow: none;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text);
+  transition: background var(--motion-fast) ease;
+}
+
+.upNext {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.overdue {
+  border: 1.5px solid var(--color-primary-soft);
+  background: var(--color-surface);
+}
+
+.done {
+  opacity: 0.6;
+
+  .titleButton,
+  .title {
+    text-decoration: line-through;
+  }
+}
+
+.row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.checkbox {
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  margin-top: 2px;
+  border-radius: 8px;
+  border: 2px solid currentColor;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  &[data-state='checked'] {
+    background: currentColor;
+
+    svg {
+      color: var(--color-surface-muted);
+    }
+  }
+}
+
+.upNext .checkbox[data-state='checked'] svg {
+  color: var(--color-primary);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.title,
+.titleButton {
+  @include clamp-lines(2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.titleButton {
+  @include focus-ring;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.repeat {
+  flex: 0 0 auto;
+  opacity: 0.7;
+}
+
+.meta {
+  margin-top: var(--space-1);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.upNext .meta {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.actions {
+  margin-top: var(--space-2);
+  display: flex;
+  gap: var(--space-2);
+}
